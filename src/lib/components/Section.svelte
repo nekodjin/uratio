@@ -1,6 +1,7 @@
 <script lang="ts">
     import { ratioSigFigs } from "$lib/globals";
     import { Polynomial } from "$lib/polynomial";
+    import { fade, slide } from "svelte/transition";
 
     export let sectionCount: number;
     $: n = sectionCount;
@@ -52,22 +53,22 @@
     })();
 </script>
 
-<svg viewBox="0 0 100 20" class="w-[80vw]">
-    <line x1="5" y1="10" x2="95" y2="10" />
-    <line x1="5" y1="7" x2="5" y2="13" />
-    <line x1="95" y1="7" x2="95" y2="13" />
+<svg in:fade viewBox="0 0 100 10" class="w-[80vw] max-w-sm">
+    <line x1="5" y1="5" x2="95" y2="5" />
+    <line x1="5" y1="3" x2="5" y2="7" />
+    <line x1="95" y1="3" x2="95" y2="7" />
     {#each sectionLengths as _, i}
         <line
             x1={sectionEndpoints[i] * 90 + 5}
-            y1="7"
+            y1="3"
             x2={sectionEndpoints[i] * 90 + 5}
-            y2="13"
+            y2="7"
         />
     {/each}
 </svg>
 
-<p class="text-right pr-[6vw]">
-    &phi;<sub>{n}</sub> = {ratio.toFixed(ratioSigFigs)}&hellip;
+<p in:fade class="text-right pr-[6vw] md:text-right md:pr-0 md:my-auto">
+    &phi;<sub>{n}</sub> &thickapprox; {ratio.toFixed(ratioSigFigs)}
 </p>
 
 <style lang="postcss">

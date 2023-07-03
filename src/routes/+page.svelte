@@ -20,17 +20,17 @@
     <header class="flex flex-row justify-center items-center w-full p-2">
         <h1 class="text-center text-2xl">Uniform Ratios</h1>
     </header>
-    <div class="grow p-2 flex flex-col justify-center items-center gap-4">
+    <div class="grow p-2 flex flex-col justify-center items-center gap-4 mb-10">
         {#if browser}
-            <main class="grid grid-cols-[auto]">
+            <main class="grid grid-cols-[auto] md:grid-cols-[repeat(2,auto)]">
                 {#each sections as section}
                     <Section sectionCount={section} />
                 {/each}
             </main>
             <button
                 on:click={addSection}
-                class="px-2 py-1 bg-blue-500 rounded text-white"
-                >Add Section</button
+                class="px-6 py-1 bg-blue-500 rounded text-white text-lg"
+                >+</button
             >
         {:else}
             <noscript class="p-8 text-white bg-red-500 rounded-md text-3xl">
@@ -46,7 +46,18 @@
                 href="https://nekodjin.org"
                 class="text-blue-600 hover:underline focus-active:underline"
                 >nekodjin</a
-            >.
+            >. View the
+            <a
+                class="text-blue-600 hover:underline focus-active:underline"
+                target="_blank"
+                href="https://github.com/nekodjin/uratio">source</a
+            >
+            on GitHub. Read the
+            <a
+                class="text-blue-600 hover:underline focus-active:underline"
+                target="_blank"
+                href="/paper.pdf">paper</a
+            > for more context.
         </p>
     </footer>
 </div>
