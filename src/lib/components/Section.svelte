@@ -74,6 +74,12 @@
 <style lang="postcss">
     svg {
         stroke: black;
-        stroke-width: 0.4px;
+        stroke-width: 0.6px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        svg {
+            stroke: white;
+        }
     }
 </style>
