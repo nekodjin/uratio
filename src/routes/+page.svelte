@@ -36,7 +36,7 @@
                 >
             {/if}
         {:else}
-            <noscript class="p-8 text-white bg-red-500 rounded-md text-3xl">
+            <noscript class="p-8 text-white bg-red-500 dark:bg-red-700 rounded-md text-3xl">
                 This page requires JavaScript. Please enable JavaScript and
                 reload the page.
             </noscript>
